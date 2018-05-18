@@ -40,6 +40,10 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { OnepageComponent } from './pages/onepage/onepage.component';
 import { menuComponent } from './pages/menu/menu.component';
 import { NosPresentationComponent } from './pages/nos_presentation/nos_presentation.component';
+import { DessertsComponent } from './pages/desserts/desserts.component';
+import { PlatsComponent } from './pages/plats/plats.component';
+import { BoissonsComponent } from './pages/boissons/boissons.component';
+import { EntreesComponent } from './pages/entrees/entrees.component';
 // import { JwtInterceptor } from './_helpers';
 
 
@@ -60,7 +64,11 @@ import { NosPresentationComponent } from './pages/nos_presentation/nos_presentat
     ContactComponent,
     OnepageComponent,
     menuComponent,
-    NosPresentationComponent
+    NosPresentationComponent,
+    DessertsComponent,
+    PlatsComponent,
+    BoissonsComponent,
+    EntreesComponent
   ],
   imports: [
     BrowserModule,

@@ -374,9 +374,9 @@
 	
 	<div id="menu">
 		<div 
-			parallax 
-			class="parallax-burger" 
-			[config]="{axis: X, speed: 1}"
+		parallax 
+		class="parallax-burger" 
+		[config]="{axis: X, speed: 1, initialValue: 650}"
 		>
 			<h4 class="font_4">
 				Nos Burger
@@ -384,6 +384,50 @@
 		</div>
 		<app-menu></app-menu>
 
+		<div 
+			parallax 
+			class="parallax-entree" 
+			[config]="{axis: X, speed: 1, initialValue: 650}"
+		>
+			<h4 class="font_4">
+				Nos Entrées
+			</h4>
+		</div>
+		<app-entrees></app-entrees>
+	
+		<div 
+			parallax 
+			class="parallax-plats" 
+			[config]="{axis: X, speed: 1, initialValue: 650}"
+		>
+			<h4 class="font_4">
+				Nos Plats
+			</h4>
+		</div>
+		<app-plats></app-plats>
+
+		<div 
+			parallax 
+			class="parallax-desserts" 
+			[config]="{axis: X, speed: 1, initialValue: 650}"
+		>
+			<h4 class="font_4">
+				Nos Dessert
+			</h4>
+		</div>
+		<app-desserts></app-desserts>
+		
+		<div 
+			parallax 
+			class="parallax-boissons" 
+			[config]="{axis: X, speed: 1, initialValue: 325}"
+		>
+			<h4 class="font_4">
+				Nos Boissons
+			</h4>
+		</div>
+		<app-boissons></app-boissons>
+		
 		<div 
 			parallax 
 			class="parallax-presentation" 
