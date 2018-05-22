@@ -55,7 +55,7 @@
 
 
 .parallax-burger {
-    background-image: url('nos_burger_3.jpg');
+    background-image: url('nos_burger.jpg');
     height: 300px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -75,6 +75,24 @@
  
 .parallax-desserts {
     background-image: url('nos_desserts.jpg');
+    height: 300px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.parallax-plats {
+    background-image: url('nos_plats.jpg');
+    height: 300px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.parallax-entree {
+    background-image: url('nos_entrees_1.jpg');
     height: 300px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
