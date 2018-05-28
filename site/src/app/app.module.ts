@@ -44,6 +44,10 @@ import { DessertsComponent } from './pages/desserts/desserts.component';
 import { PlatsComponent } from './pages/plats/plats.component';
 import { BoissonsComponent } from './pages/boissons/boissons.component';
 import { EntreesComponent } from './pages/entrees/entrees.component';
+import { MenuContainerComponent } from './admin/menu-container/menu-container.component';
+import { NgxSmartModalService, NgxSmartModalModule } from 'ngx-smart-modal';
+import { VinsComponent } from './pages/vins/vins.component';
+import { AjoutComponent } from './pages/vins/ajout/ajout.component';
 // import { JwtInterceptor } from './_helpers';
 
 
@@ -68,7 +72,10 @@ import { EntreesComponent } from './pages/entrees/entrees.component';
     DessertsComponent,
     PlatsComponent,
     BoissonsComponent,
-    EntreesComponent
+    EntreesComponent,
+    MenuContainerComponent,
+    VinsComponent,
+    AjoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,13 +89,15 @@ import { EntreesComponent } from './pages/entrees/entrees.component';
       apiKey: 'AIzaSyCZeDurG5gamvy7AGTl-zerIuq-kzoNrRc'
     }),
     ParallaxScrollModule,
-    Ng2PageScrollModule
+    Ng2PageScrollModule,
+    NgxSmartModalModule
   ],
   providers: [
     AuthGuardService,
     AlertService,
     AuthenticationService,
     UsersService,
+    NgxSmartModalService
    /*  {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

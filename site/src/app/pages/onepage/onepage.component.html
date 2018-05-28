@@ -415,18 +415,35 @@
 				Nos Dessert
 			</h4>
 		</div>
-		<app-desserts></app-desserts>
+
 		
 		<div 
-			parallax 
-			class="parallax-boissons" 
-			[config]="{axis: X, speed: 1, initialValue: 325}"
+		parallax 
+		class="parallax-boissons" 
+		[config]="{axis: X, speed: 1, initialValue: 325}"
 		>
-			<h4 class="font_4">
-				Nos Boissons
-			</h4>
+		<h4 class="font_4">
+			Nos Boissons
+		</h4>
+	</div>
+	
+	<div class="container">
+		<div class="tabs" >
+			<nav class="tabMenu">
+				<div class="row">
+					<div class="col-md-6 tabMenuList current" (click)="openTab('des', $event)">Nos Boissons</div>
+					<div class="col-md-6 tabMenuList" (click)="openTab('vin', $event)">Nos Vins</div>
+				</div>
+			</nav>
+			<div class="tab" id="des">
+				<app-boissons></app-boissons>
+			</div>
+			<div class="tab hide-content" id="vin">
+				<app-vins></app-vins>
+			</div>
 		</div>
-		<app-boissons></app-boissons>
+	</div>
+
 		
 		<div 
 			parallax 
