@@ -17,6 +17,8 @@ import { DeleteDessertComponent } from './dessert/delete/delete.component';
 import { BoissonComponent } from './boisson/boisson.component';
 import { AjoutBoissonComponent } from './boisson/ajout/ajout.component';
 import { DeleteBoissonComponent } from './boisson/delete/delete.component';
+import { MenuListComponent } from './menu-list/menu-list.component';
+import { MenuAddComponent } from './menu-add/menu-add.component';
 
 
 const routes: Routes = [
@@ -52,6 +54,10 @@ const routes: Routes = [
     { path: 'boisson/:insertOrList', component: BoissonComponent },
     { path: 'ajoutboisson', component: AjoutBoissonComponent },
     { path: 'deleteboisson/:id', component: DeleteBoissonComponent },
+
+    // Dynamic menu
+    { path: ':menuTitle/:menuId', component: MenuListComponent },
+    { path: ':menuTitle/:menuId/:menuAction', component: MenuAddComponent },
 ];
 
 export const adminRouting = RouterModule.forChild(routes);

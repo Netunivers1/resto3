@@ -1,0 +1,6 @@
+<li *ngFor="let container of menuContainer">
+  <a class="waves-effect waves-dark" routerLink="/admin/{{ container.menuTitle }}/{{ container.id }}" aria-expanded="false">
+    <i class="mdi mdi-beer"></i>
+    <span class="hide-menu">{{ container.menuTitle }}</span>
+  </a>
+</li>
