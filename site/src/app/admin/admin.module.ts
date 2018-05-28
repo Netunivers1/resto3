@@ -26,6 +26,8 @@ import { DeleteDessertComponent } from './dessert/delete/delete.component';
 import { BoissonComponent } from './boisson/boisson.component';
 import { AjoutBoissonComponent } from './boisson/ajout/ajout.component';
 import { DeleteBoissonComponent } from './boisson/delete/delete.component';
+import { MenuListComponent } from './menu-list/menu-list.component';
+import { MenuAddComponent } from './menu-add/menu-add.component';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { DeleteBoissonComponent } from './boisson/delete/delete.component';
     BoissonComponent,
     AjoutBoissonComponent,
     DeleteBoissonComponent,
+    MenuListComponent,
+    MenuAddComponent,
     // RegisterComponent,
     // LoginComponent
   ],

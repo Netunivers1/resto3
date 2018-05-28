@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { DOCUMENT} from '@angular/common';
 import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
- 
+
 
 @Component({
   selector: 'app-onepage',
@@ -18,7 +18,8 @@ export class OnepageComponent implements OnInit {
 		@Inject(DOCUMENT) private document: any
 		) { }
 
-	ngOnInit() { }
+	ngOnInit() {
+	 }
 
 	public goToHome(): void {
 		let pageScrollInstance: PageScrollInstance = PageScrollInstance.simpleInstance(
@@ -72,5 +73,26 @@ export class OnepageComponent implements OnInit {
    	 }
 	};
 
+	public openTab(tabname, event) {
+		let tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs .tabMenu .tabMenuList'));
+		tabs.forEach(function(value, index){
+			value.className = value.className.replace(" current", "");
+			if (event.srcElement.innerHTML == value.innerHTML && value.className.indexOf('current') == -1){
+				value.className += " current";
+			}
+		});
+		let i, arr;
+		let classHide = "hide-content";
+		let x = document.getElementsByClassName("tab");
+		for (i = 0; i < x.length; i++) {
+			arr = x[i].className.split(" ");
+			if (arr.indexOf(classHide) == -1) {
+				x[i].className += " " + classHide;
+			}
+		}
+		let currentTab = document.getElementById(tabname);
+		let currentClass = currentTab.className.replace(" hide-content", "");
+		currentTab.className = currentClass;
+	}
 	
 }
