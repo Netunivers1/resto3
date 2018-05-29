@@ -1050,7 +1050,7 @@ var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["g" /* RouterModule 
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return urlApi; });
 var host = 'http://mividy.com/api/resto3/web/app_dev.php';
 // const host = 'http://localhost:8000';
-//const host = 'http://127.0.0.1:8000';
+// const host = 'http://127.0.0.1:8000';
 var urlApi = host;
 
 

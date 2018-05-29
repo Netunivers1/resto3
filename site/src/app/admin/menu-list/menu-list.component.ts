@@ -20,6 +20,8 @@ export class MenuListComponent implements OnInit {
   deleted: boolean;
   listValid = true;
   menuCharger: boolean;
+  noList: boolean;
+  tobeDelete: object;
 
   constructor(private http: Http, private route: ActivatedRoute, private router: Router, public ngxSmartModalService: NgxSmartModalService) { }
 
@@ -31,13 +33,21 @@ export class MenuListComponent implements OnInit {
     let url = urlApi + '/getlist/' + this.menuContainerTitle + '/' + this.menuContainerId;
 
     this.http.get(url).subscribe((response) => {
-      this.menuList = response.json() || [{ nom: "---", gm: "---", pm: "---"}];
+      this.menuList = response.json();
+      if (!this.menuList){
+        this.listValid = true;
+        this.noList = true;
+      }
       this.menuCharger = false;
     });
   }
 
   modifierMenu(data){
     this.modif = data;
+  }
+
+  supprimerPrepare(data){
+    this.tobeDelete = data;
   }
 
   supprimerMenu(values){
@@ -49,6 +59,7 @@ export class MenuListComponent implements OnInit {
       this.deleted = (response) ? true : false;
       this.ngxSmartModalService.closeLatestModal();
       this.listValid = true;
+      this.ngOnInit();
     });
   }
 
@@ -58,10 +69,11 @@ export class MenuListComponent implements OnInit {
     let url = urlApi + '/updateList/' + this.menuContainerId + '/' + values.id;
 
     this.http.post(url, values).subscribe((response) => {
-        this.modified = (response) ? true : false;
-        this.ngxSmartModalService.closeLatestModal();
-        this.listValid = true;
-        this.menuCharger = false;
+      this.modified = (response) ? true : false;
+      this.ngxSmartModalService.closeLatestModal();
+      this.listValid = true;
+      this.menuCharger = false;
+      this.ngOnInit();
     });
   }
 
