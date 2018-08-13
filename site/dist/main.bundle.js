@@ -1217,12 +1217,12 @@ var BoissonsComponent = /** @class */ (function () {
     }
     BoissonsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/boisson';
+        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/boisson/0';
         this.http.get(url)
             .map(function (response) { return response.json(); })
             .subscribe(function (data) {
-            _this.menus = data;
-            _this.menusCharger = (data.length > 0) ? true : false;
+            _this.menus = data.contain;
+            _this.menusCharger = (data.contain.length > 0) ? true : false;
         });
     };
     BoissonsComponent = __decorate([
@@ -1355,12 +1355,12 @@ var DessertsComponent = /** @class */ (function () {
     }
     DessertsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/dessert';
+        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/dessert/0';
         this.http.get(url)
             .map(function (response) { return response.json(); })
             .subscribe(function (data) {
-            _this.menus = data;
-            _this.menusCharger = (data.length > 0) ? true : false;
+            _this.menus = data.contain;
+            _this.menusCharger = (data.contain.length > 0) ? true : false;
         });
     };
     DessertsComponent = __decorate([
@@ -1430,12 +1430,12 @@ var EntreesComponent = /** @class */ (function () {
     }
     EntreesComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/entree';
+        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/entree/0';
         this.http.get(url)
             .map(function (response) { return response.json(); })
             .subscribe(function (data) {
-            _this.menus = data;
-            _this.menusCharger = (data.length > 0) ? true : false;
+            _this.menus = data.contain;
+            _this.menusCharger = (data.contain.length > 0) ? true : false;
         });
     };
     EntreesComponent = __decorate([
@@ -1574,12 +1574,12 @@ var menuComponent = /** @class */ (function () {
     }
     menuComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/menu3';
+        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/menu3/0';
         this.http.get(url)
             .map(function (response) { return response.json(); })
             .subscribe(function (data) {
-            _this.menus = data;
-            _this.menusCharger = (data.length > 0) ? true : false;
+            _this.menus = data.contain;
+            _this.menusCharger = (data.contain.length > 0) ? true : false;
         });
     };
     menuComponent = __decorate([
@@ -1909,12 +1909,12 @@ var PlatsComponent = /** @class */ (function () {
     }
     PlatsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/plat';
+        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/plat/0';
         this.http.get(url)
             .map(function (response) { return response.json(); })
             .subscribe(function (data) {
-            _this.menus = data;
-            _this.menusCharger = (data.length > 0) ? true : false;
+            _this.menus = data.contain;
+            _this.menusCharger = (data.contain.length > 0) ? true : false;
         });
     };
     PlatsComponent = __decorate([
@@ -2134,9 +2134,9 @@ var VinsComponent = /** @class */ (function () {
     }
     VinsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/getlist/vins/1';
+        var url = __WEBPACK_IMPORTED_MODULE_2__config_host__["a" /* urlApi */] + '/getlist/vins/1/0';
         this.http.get(url).subscribe(function (data) {
-            _this.menus = data.json();
+            _this.menus = data.json().contain;
             _this.menusCharger = (_this.menus) ? true : false;
         });
     };
