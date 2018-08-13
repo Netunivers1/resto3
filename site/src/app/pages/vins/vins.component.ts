@@ -15,10 +15,10 @@ export class VinsComponent implements OnInit {
   constructor(private http: Http) { }
 
   ngOnInit() {
-    let url = urlApi + '/getlist/vins/1';
+    let url = urlApi + '/getlist/vins/1/0';
     this.http.get(url).subscribe(
         (data) => {
-          this.menus = data.json();
+          this.menus = data.json().contain;
           this.menusCharger = (this.menus) ? true : false;
         }
       );

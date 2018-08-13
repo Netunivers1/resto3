@@ -28,18 +28,42 @@ class Menu_listsController extends Controller {
 
     /**
      * @Rest\View()
-     * @Rest\Get("/getlist/{menutitle}/{menuid}")
+     * @Rest\Get("/getlist/{menutitle}/{menuid}/{paginate}/{page}/{limit}")
      */
-    public function getListMenuAction($menutitle, $menuid) {
-        $menu_repository = $this->getDoctrine()->getRepository(Menu_lists::class);
-        $menu_name = $menu_repository->findBy(array('idMenu' => $menuid));
-        $_menu_values = [];
-        foreach ($menu_name as $key => $value) {
+    public function getListMenuAction($menutitle, $menuid, $paginate = 1, $page = 1, $limit = 5) {
+
+        $Menu = $this->get('doctrine.orm.entity_manager')
+                ->getRepository(Menu_lists::class)
+                ->createQueryBuilder('v')
+                ->where('v.idMenu = ' . $menuid);
+
+        if ($paginate) {
+            $Menu_clone = clone($Menu);
+            $lists['count'] = (int) $Menu->select('COUNT(v) as list')->getQuery()->getResult()[0]['list'];
+
+            // Check offset to be valid
+            $limit = (int) $limit;
+            $page = (int) $page;
+            $page = ($page > 0 && $page <= ceil($lists['count'] / $limit)) ? $page : 1;
+            $offset = ($page * $limit) - $limit;
+
+            $tmp_menu = $Menu_clone->setFirstResult($offset)->setMaxResults($limit)->getQuery()->getResult();
+
+            $lists['p_current'] = $page;
+            $lists['p_prev'] = $page - 1 < 0 ? $page : $page - 1;
+            $lists['p_next'] = $page + 1 > $lists['count'] ? $page : $page + 1;
+        } else {
+            $tmp_menu = $Menu->getQuery()->getResult();
+        }
+        
+        $lists['contain'] = [];
+        foreach ($tmp_menu as $key => $value) {
             $tmp_val = unserialize($value->getMenuLists());
             $tmp_val['id'] = $value->getId();
-            array_push($_menu_values, $tmp_val);
+            array_push($lists['contain'], $tmp_val);
         }
-        return ($_menu_values) ? $_menu_values: false;
+
+        return $lists;
     }
 
      /**
