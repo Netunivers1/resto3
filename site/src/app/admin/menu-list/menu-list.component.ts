@@ -98,29 +98,37 @@ export class MenuListComponent implements OnInit {
     this.modif = data;
   }
 
-  supprimerMenu(values){
+  initializingDelete(values) {
+    this.modif = values;
+  }
+
+  supprimerMenu(values = null){
+    this.ngxSmartModalService.closeLatestModal();
+    if (values == null) {
+      values = this.modif;
+    }
     this.listValid = false;
     let url = urlApi + '/delete/' + this.menuContainerId + '/' + values.id;
     console.log(url);
 
     this.http.post(url, values).subscribe((response) => {
       this.deleted = (response) ? true : false;
-      this.ngxSmartModalService.closeLatestModal();
       this.listValid = true;
+      this.pagination(this.page_current, this.limits);
     });
   }
 
   onClickSubmit(values){
+    this.ngxSmartModalService.closeLatestModal();
     this.listValid = false;
     this.menuCharger = true;
     let url = urlApi + '/updateList/' + this.menuContainerId + '/' + values.id;
 
     this.http.post(url, values).subscribe((response) => {
         this.modified = (response) ? true : false;
-        this.ngxSmartModalService.closeLatestModal();
         this.listValid = true;
         this.menuCharger = false;
+        this.pagination(this.page_current, this.limits);
     });
   }
-
 }

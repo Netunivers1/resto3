@@ -79,7 +79,7 @@
                     Modifier
                   </a>
                   <a class="btn waves-effect waves-light btn-primary pull-left  dialog__close-btn ng-tns-c5-2 ng-star-inserted" style="color: #fff; background: red !important; border: 1px solid red;"
-                    (click)="ngxSmartModalService.getModal('myModal').open();supprimerMenu(list)">
+                    (click)="ngxSmartModalService.getModal('myModal').open();initializingDelete(list)">
                     Supprimer
                   </a>
                 </td>
@@ -109,7 +109,7 @@
   </div>
 
   <div class="modal-footer">
-    <a type="button" class="btn btn-default" data-dismiss="modal" style="color: #fff; background: red !important;" routerLink="/admin/deleteboisson/{{idBoissonTodelete}}">
+    <a type="button" class="btn btn-default" data-dismiss="modal" style="color: #fff; background: red !important;" (click)="supprimerMenu();">
       Supprimer
     </a>
     <button type="button" class="btn btn-primary" style="color: #fff; background: #f07f0a !important; border: 1px solid #f07f0a;"
@@ -154,7 +154,7 @@
               <tr>
                 <th>
                   <a class="btn waves-effect waves-light btn-primary pull-left dialog__close-btn ng-tns-c5-2 ng-star-inserted action_mobile_warning"
-                    style="color: #fff; background: red !important; border: 1px solid red;" (click)="ngxSmartModalService.getModal('modifierModal').close(); ngxSmartModalService.getModal('myModal').open(); supprimerMenu(modif);">
+                    style="color: #fff; background: red !important; border: 1px solid red;" (click)="ngxSmartModalService.getModal('modifierModal').close(); ngxSmartModalService.getModal('myModal').open(); initializingDelete(modif);">
                     Supprimer
                   </a>
                 </th>
