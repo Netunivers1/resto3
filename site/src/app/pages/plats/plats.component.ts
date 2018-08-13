@@ -17,15 +17,15 @@ export class PlatsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let url = urlApi + '/plat';
+    let url = urlApi + '/plat/0';
     this.http.get(url)
       .map(
         (response) => response.json()
       )
       .subscribe(
         (data) => {
-          this.menus = data;
-          this.menusCharger = (data.length > 0) ? true : false;
+          this.menus = data.contain;
+          this.menusCharger = (data.contain.length > 0) ? true : false;
         }
       );
   }
